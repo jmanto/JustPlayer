@@ -102,7 +102,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def open(self):
         file_dialog = QtWidgets.QFileDialog(self)
-        file_dialog.setMimeTypeFilters(["video/mp4"])
+        file_dialog.setMimeTypeFilters(["video/mp4, video/mkv"])
 
         movies_dir = QtCore.QStandardPaths.writableLocation(QtCore.QStandardPaths.MoviesLocation)
         file_dialog.setDirectory(movies_dir)
@@ -127,7 +127,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         if directory:
             gen = glob.iglob(directory + r"/**/*.*", recursive=True)
-            res = [f for f in gen if ".mp4" in f]
+            res = [f for f in gen if ".mp4" in f or ".mpg" in f or ".mkv" in f or ".mov" in f or ".wmv" in f]
             self.all_image = list()
 
             for file in res:
