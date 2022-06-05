@@ -115,6 +115,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.nb_images = 1
             fileName = self.all_image[self.id]
             movie = QtCore.QUrl(fileName)
+            print(fileName)
+            print(movie)
 
             self.player.setMedia(QtMultimedia.QMediaContent(movie))
             self.player.play()
@@ -143,8 +145,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.player.play()
 
     def play(self):
+        print("In Play")
         self.player.play()
+        print("In Play 2")
         self.video_widget.resize(QtCore.QSize(1, 1))
+        print("In Play 3")
 
     def play_previous(self):
         self.id = self.id = (self.id - 1) % self.nb_images
